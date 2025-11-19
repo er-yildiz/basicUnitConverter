@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Debi Birim Çevirici</title>
+</head>
+<body>
+  <h1>Debi Birim Çevirici</h1>
+  <input type="number" id="value" placeholder="Değer">
+  <select id="from_unit">
+    <option value="L/min">L/dakika</option>
+    <option value="gal/min">Galon/dakika</option>
+    <option value="m3/h">m³/saat</option>
+  </select>
+  <select id="to_unit">
+    <option value="L/min">L/dakika</option>
+    <option value="gal/min">Galon/dakika</option>
+    <option value="m3/h">m³/saat</option>
+  </select>
+  <button onclick="convert()">Çevir</button>
+  <p id="result"></p>
+
+  <script>
+    const factors = {
+      "L/min_gal/min": 0.264172,
+      "gal/min_L/min": 3.78541,
+      "m3/h_L/min": 1000 / 60,
+      "L/min_m3/h": 60 / 1000
+    };
+
+    function convert() {
+      const value = parseFloat(document.getElementById("value").value);
+      const from = document.getElementById("from_unit").value;
+      const to = document.getElementById("to_unit").value;
+      const key = `${from}_${to}`;
+      const result = factors[key] ? value * factors[key] : "Desteklenmeyen dönüşüm";
+      document.getElementById("result").innerText = `${value} ${from} = ${result} ${to}`;
+    }
+  </script>
+</body>
+</html>
