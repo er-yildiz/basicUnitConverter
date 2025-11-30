@@ -1,0 +1,1 @@
+print("GitHub + VS Code + Python çalışıyor.")
