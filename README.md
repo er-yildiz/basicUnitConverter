@@ -1,2 +1,4 @@
-# basicUnitConverter
-A basic unit converger with limited coverage.
+# Basic Unit Converter
+Bu proje Python ile basit bir birim dönüştürücü içerir.
+- metre → santimetre
+- kilogram → gram
